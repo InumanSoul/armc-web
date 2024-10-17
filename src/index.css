@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply bg-gray-900 text-white;
+}
+
+.btn {
+  @apply font-semibold py-2 px-4 rounded-lg border border-transparent disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.btn-outline-white {
+  @apply text-white border-white;
+}
+
+.btn-primary {
+  @apply bg-amber-600 text-white;
+}
+
+.btn-block {
+  @apply block w-full;
+}
+
+.btn-sm {
+  @apply text-sm py-1 px-2;
+}
+
+.input {
+  @apply block w-full px-3 py-2 border rounded-lg bg-gray-800 border-gray-600 outline-none focus:border-amber-600;
+}
