@@ -1,18 +1,11 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import App from './routes'
 import './index.css'
-
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-  cache: new InMemoryCache(),
-});
+import { ApolloProvider } from '@apollo/client'
+import client from './services/apolloClient'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
-  </StrictMode>,
 )

@@ -13,3 +13,17 @@ export type User = {
     year: number;
   }[];
 }
+
+export interface LoginParams {
+	username: string;
+	password: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  user: User;
+}
+
+export interface LoginService {
+	login(username: string, password: string): Promise<LoginResponse>;
+}

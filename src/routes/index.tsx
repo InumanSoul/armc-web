@@ -6,6 +6,11 @@ import Members from "../pages/app/Members";
 import Rules from "../pages/Rules";
 import NotFound from "../pages/NotFound";
 import { Layout } from "../pages/app/Layout";
+import Register from "../pages/Register";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import Motorcycles from "../pages/app/Motorcycles";
+import Store from "../pages/store/Store";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +30,24 @@ const router = createBrowserRouter([
       {
         path: "members",
         element: <Members />,
-        index: true
       },
+      {
+        path: "motorcycles",
+        element: <Motorcycles />,
+      }
     ]
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/about",
+    element: <About />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
   },
   {
     path: "/login",
@@ -36,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/rules",
     element: <Rules />,
+  },
+  {
+    path: "/store",
+    element: <Store />,
   },
   {
     path: "*",

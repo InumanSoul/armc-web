@@ -4,7 +4,7 @@
 
 
 body {
-  @apply bg-gray-900 text-white;
+  @apply bg-zinc-900 text-white;
 }
 
 .btn {
@@ -15,8 +15,16 @@ body {
   @apply text-white border-white;
 }
 
+.btn-secondary {
+  @apply bg-zinc-700 text-white;
+}
+
 .btn-primary {
   @apply bg-amber-600 text-white;
+}
+
+.btn-primary-outline {
+  @apply border-amber-600 text-amber-500;
 }
 
 .btn-block {
@@ -28,5 +36,5 @@ body {
 }
 
 .input {
-  @apply block w-full px-3 py-2 border rounded-lg bg-gray-800 border-gray-600 outline-none focus:border-amber-600;
+  @apply block w-full px-3 py-2 border rounded-lg bg-zinc-800 border-zinc-600 outline-none focus:border-amber-600;
 }

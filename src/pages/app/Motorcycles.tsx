@@ -1,4 +1,6 @@
-export default function Motorcycles () {
+import Authenticated from "../../components/Authenticated"
+
+const Motorcycles = () => {
   return (
     <section className='w-full h-dvh bg-gray-900 text-gray-50 flex items-center justify-center'>
       <h1 className='text-3xl font-bold'>Motocicletas</h1>
@@ -12,3 +14,6 @@ export default function Motorcycles () {
     </section>
   )
 }
+
+const AuthMotorcycles = Authenticated(Motorcycles);
+export default AuthMotorcycles;

@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { User } from '../../types';
+import Authenticated from '../../components/Authenticated';
 
 const GET_MEMBERS = gql`
 	query GetMembers {
@@ -21,7 +22,7 @@ const GET_MEMBERS = gql`
 	}
 `;
 
-export default function Members() {
+const Members = () => {
 	const { loading, data } = useQuery(GET_MEMBERS);
 
 	return (
@@ -29,7 +30,7 @@ export default function Members() {
 			<h1 className='text-3xl font-bold mb-10 mt-28'>Miembros activos</h1>
 			<table className='w-full'>
 				<thead>
-					<tr className='border-b border-gray-700'>
+					<tr className='border-b border-zinc-700'>
 						<th className='px-3 py-1 text-left text-lg'>Nombre</th>
 						<th className='px-3 py-1 text-left text-lg'>Edad</th>
 						<th className='px-3 py-1 text-left text-lg'>Fecha de ingreso</th>
@@ -39,7 +40,7 @@ export default function Members() {
 				<tbody>
 					{!loading && data?.getUsers.length > 0 ? (
 						data.getUsers.map((user: User) => (
-							<tr key={user.id} className='hover:bg-gray-700'>
+							<tr key={user.id} className='hover:bg-zinc-700'>
 								<td className='px-3 py-4'>
 									{user.personalInfo.firstName} {user.personalInfo.lastName}
 								</td>
@@ -62,3 +63,6 @@ export default function Members() {
 		</section>
 	);
 }
+
+const AuthMembers = Authenticated(Members);
+export default AuthMembers;
