@@ -1,43 +1,26 @@
-import { gql } from "@apollo/client";
 import client from "../apolloClient";
-
-const QUERY_USERS = gql`
-  query GetUsers {
-    getUsers {
-      id
-      username
-      email
-      personalInfo {
-        firstName
-        lastName
-        dateOfBirth
-        idNumber
-        emergencyContact {
-          name
-          phone
-          relationship
-        }
-        address
-        phone
-        joinedDate
-        bio
-      }
-      motorcycles {
-        brand
-        model
-        year
-      }
-  }
-}
-`;
+import { GET_USERS, GET_USER } from "../querys";
 
 export const getUsers = async () => {
   try {
     const { data } = await client.query({
-      query: QUERY_USERS,
+      query: GET_USERS,
     });
     
     return data.getUsers;
+  } catch (err) {
+    throw new Error(`Error: ${err instanceof Error ? err.message : err}`);
+  }
+}
+
+export const getUser = async (id: string) => {
+  try {
+    const { data } = await client.query({
+      query:GET_USER,
+      variables: { id },
+    });
+
+    return data.getUser;
   } catch (err) {
     throw new Error(`Error: ${err instanceof Error ? err.message : err}`);
   }

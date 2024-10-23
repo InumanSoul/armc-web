@@ -1,26 +1,45 @@
-import { BiArrowBack } from "react-icons/bi";
-import Authenticated from "../../../components/Authenticated";
-import { Link } from "react-router-dom";
+import { BiArrowBack } from 'react-icons/bi';
+import Authenticated from '../../../components/Authenticated';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import useSingleMember from '../../../hooks/useSingleMember';
+import { formatDate } from '../../../utils';
 
 const MemberDetail = () => {
-  return (
-    <section className="container mt-20">
-      <Link to="/app/events" className="text-zinc-400 flex gap-2 mb-5">
-        <BiArrowBack size={24} />
-        Volver
-      </Link>
-      <h1 className="text-3xl font-bold">Juan Perez #123456</h1>
-      <p className="text-lg text-zinc-500">
-        12/12/2024 - 12:00 PM
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac
-        fermentum libero. Integer sit amet mauris ac purus feugiat
-        fermentum. Nullam nec turpis
-      </p>
-    </section>
-  );
-}
+	const { getMember, member, loading, error } = useSingleMember();
+	const { id } = useParams();
+
+	useEffect(() => {
+		if (!id) return;
+		getMember(id);
+	}, [getMember, id]);
+
+	return (
+		<section className='container mt-20'>
+			<Link to='/app/members' className='text-zinc-400 flex gap-2 mb-5'>
+				<BiArrowBack size={24} />
+				Volver
+			</Link>
+			{member && !loading && !error ? (
+				<>
+					<h1 className='text-3xl font-bold'>
+						{member?.personalInfo.firstName} {member?.personalInfo.lastName}
+					</h1>
+					<p className='text-lg text-zinc-500'>
+						{formatDate(member?.personalInfo.dateOfBirth)}
+					</p>
+					<p>
+						{
+              member?.personalInfo.bio || 'No hay información disponible'
+            }
+					</p>
+				</>
+			) : (
+				<p>No se encontro el usuario...</p>
+			)}
+		</section>
+	);
+};
 
 const AuthMemberDetail = Authenticated(MemberDetail);
 export default AuthMemberDetail;

@@ -15,6 +15,7 @@ import Motorcycles from "../pages/app/Motorcycles";
 import Store from "../pages/store/Store";
 import AuthHome from "../pages/app/home";
 import AuthEventDetail from "../pages/app/events/detail";
+import AuthMemberDetail from "../pages/app/members/detail";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,16 @@ const router = createBrowserRouter([
       },
       {
         path: "members",
-        element: <Members />,
+        children: [
+          {
+            index: true,
+            element: <Members />,
+          },
+          {
+            path: ":id",
+            element: <AuthMemberDetail />,
+          }
+        ]
       },
       {
         path: "motorcycles",

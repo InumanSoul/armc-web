@@ -8,8 +8,6 @@ const useMembers = () => {
   const [members, setMembers] = useState<User[] | null>(null);
   
   useEffect(() => {
-    console.log('useMembers');
-    
     const fetchMembers = async () => {
       setLoading(true);
       setError(null);

@@ -3,7 +3,7 @@ import Authenticated from "../../../components/Authenticated";
 
 const LoggedHome = () => {
   return (
-    <section className="container mt-20">
+    <section className="container mt-12 mb-28">
       <img src="/logo.png" alt="Angeles Rebeldes" className="w-20 object-cover mb-12 mx-auto" />
       <div className="space-y-5">
       <div className="p-5 rounded-xl border border-zinc-600">
@@ -23,11 +23,13 @@ const LoggedHome = () => {
       </div>
       <div className="p-5 rounded-xl border border-zinc-600">
         <h2 className="font-bold text-2xl">Estado de cuenta</h2>
-        <h3 className="font-bold text-xl">Gs. 1.000.000</h3>
-        <p>
-          Saldo actual
-        </p>
-        <p>
+        <div className="my-4">
+          <p>
+            Saldo actual
+          </p>
+          <h3 className="font-bold text-2xl">Gs. 4.870.000</h3>
+        </div>
+        <p className="text-sm text-zinc-400">
           Último movimiento: Gs. 500.000 (Pago de cuota)
         </p>
       </div>
@@ -35,15 +37,15 @@ const LoggedHome = () => {
         <h2 className="font-bold text-2xl">Eventos</h2>
         <ul className="mb-5 divide-y divide-zinc-700">
           <li className="py-5">
-            <Link to="/event/event-detail">
-              <h3 className="font-bold text-lg">Evento #123456</h3>
-              <p className="text-zinc-400">12/12/2024 - 12:00 PM</p>
+            <Link to="/events/event-detail">
+              <h3 className="font-bold text-lg">Aniversario Caballeros del Asfalto MC</h3>
+              <p className="text-zinc-400">30/11/2024 - 18:00 hs</p>
             </Link>
           </li>
           <li className="py-5">
-            <Link to="/event/event-detail">
-              <h3 className="font-bold text-lg">Evento #123456</h3>
-              <p className="text-zinc-400">12/12/2024 - 12:00 PM</p>
+            <Link to="/events/event-detail-2">
+              <h3 className="font-bold text-lg">Aniversario Angeles Rebeldes</h3>
+              <p className="text-zinc-400">06/12/2024 - 20:00 hs</p>
             </Link>
           </li>
         </ul>

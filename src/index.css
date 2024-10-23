@@ -47,6 +47,10 @@ body {
   @apply block w-full px-3 py-2 border rounded-lg bg-zinc-800 border-zinc-600 outline-none focus:border-amber-600;
 }
 
+.label {
+  @apply text-sm font-semibold;
+}
+
 .container {
   @apply w-full max-w-3xl mx-auto px-10;
 }
