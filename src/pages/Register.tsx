@@ -8,7 +8,7 @@ export default function Register() {
   }
 
 	return (
-		<section className='container h-dvh flex flex-col items-center justify-center'>
+		<section className='container min-h-dvh py-10 flex flex-col items-center justify-center'>
 			<Link to={'/'}>
 				<img src='/logo.png' alt='Logo' className='w-20 mb-12' />
 			</Link>

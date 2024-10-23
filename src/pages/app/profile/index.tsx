@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Authenticated from '../../../components/Authenticated';
 import { BiLogOut } from 'react-icons/bi';
 import { IoImage } from 'react-icons/io5';
 import MembershipCard from '../../../components/MembershipCard';
 import useSingleMember from '../../../hooks/useSingleMember';
 import { useEffect } from 'react';
+import { formatDate, getYearsOld } from '../../../utils';
 
 const Profile = () => {
 	const navigate = useNavigate();
@@ -33,11 +34,11 @@ const Profile = () => {
 						<h1 className='font-bold text-3xl'>{userFullName}</h1>
 						<p className='bg-amber-800 text-amber-300 rounded p-1 inline-flex'>@{member?.username}</p>
 						<p>Email: {member?.email}</p>
-						<p>Edad: {member?.personalInfo.dateOfBirth}</p>
+						<p>Edad: {getYearsOld(member?.personalInfo.dateOfBirth)}</p>
 					</div>
 
 					<div className='col-span-12 md:col-span-6'>
-						<MembershipCard name={userFullName} joinDate={'08/10/2019'} />
+						<MembershipCard name={userFullName} joinDate={member?.personalInfo.joinedDate} />
 					</div>
 
 					<div className='col-span-12 md:col-span-6 border border-zinc-600 rounded-xl p-5'>
@@ -45,13 +46,14 @@ const Profile = () => {
             <p>Nombre: {member?.personalInfo.firstName}</p>
 						<p>Apellido: {member?.personalInfo.lastName}</p>
             <p>Tipo de sangre: O+</p>
-            <p>Fecha de nacimiento: 14/09/1997</p>
+            <p>Fecha de nacimiento: {formatDate(member?.personalInfo.dateOfBirth)}</p>
 						<p>Direccion: Fake street 123</p>
             <div className='mt-3'>
-						  <p>Contacto de emergencia: </p>
+						  <p>Contacto de emergencia</p>
               <div className='py-2 px-3 bg-zinc-700 rounded-lg'>
-                <p className='text-lg font-bold'>Ana Ramirez</p>
-                <p>Relación: <span>(Esposa)</span></p>
+                <p className='text-lg font-bold'>{member?.personalInfo?.emergencyContact?.name}</p>
+                <p>Telefono: <span>{member?.personalInfo?.emergencyContact.phone}</span></p>
+                <p>Relación: <span>({member?.personalInfo?.emergencyContact.relationship})</span></p>
               </div>
             </div>
 					</div>
@@ -72,7 +74,7 @@ const Profile = () => {
 			)}
 
 			<div className='mt-5 flex items-center gap-2'>
-				<a href='/app/profile/edit' className='btn btn-secondary'>Editar perfil</a>
+				<Link to='/app/profile/edit' className='btn btn-secondary'>Editar perfil</Link>
 				<button
 					type='button'
 					className='btn btn-danger-outline flex'

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { getUser } from "../services/api/getMembers";
+import { getUser, updateUser } from "../services/api/getMembers";
 import { User } from "../types";
 
 const useSingleMember = () => {
@@ -25,7 +25,26 @@ const useSingleMember = () => {
     }
   }, []);
 
-  return { getMember, member, loading, error };
+  const updateMember = useCallback(async (id: string, data: User) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const updatedMember = await updateUser(id, data);
+      
+      setMember(updatedMember);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('Error fetching members');
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return { updateMember, getMember, member, loading, error };
 };
 
 export default useSingleMember;

@@ -6,3 +6,9 @@ export function formatDate(date: string): string {
     day: 'numeric',
   });
 }
+
+export function getYearsOld(date: string): number {
+  const d = new Date(date);
+  const now = new Date();
+  return now.getFullYear() - d.getFullYear();
+}

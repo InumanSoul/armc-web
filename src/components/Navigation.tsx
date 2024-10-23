@@ -1,6 +1,7 @@
-import { BiHome, BiNews } from 'react-icons/bi';
+import { BiNews } from 'react-icons/bi';
 import { GiFullMotorcycleHelmet } from 'react-icons/gi';
 import { PiMotorcycleFill, PiUsersFourFill } from 'react-icons/pi';
+import { TbHomeFilled } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
@@ -18,7 +19,7 @@ const Navigation = () => {
 						className={({ isActive }) =>
 							`${isActive ? linkActiveClass : linkBaseClass}`
 						}>
-						<BiHome size={24} />
+						<TbHomeFilled size={24} />
 						<p className='text-xs'>Inicio</p>
 					</NavLink>
 				</li>

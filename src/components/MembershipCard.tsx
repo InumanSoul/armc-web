@@ -1,3 +1,5 @@
+import { formatDate } from "../utils";
+
 const MembershipCard = ({ name, joinDate }: { name: string, joinDate: string}) => {
   return (
     <div className="bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl p-4 space-y-2 w-full h-fit">
@@ -14,7 +16,7 @@ const MembershipCard = ({ name, joinDate }: { name: string, joinDate: string}) =
         <dd className='text-zinc-400 text-xs'>Miembro activo</dd>
       </dl>
       <dl>
-        <dd className='font-semibold'>{joinDate}</dd>
+        <dd className='font-semibold'>{formatDate(joinDate)}</dd>
         <dd className='text-zinc-400 text-xs'>Fecha ingreso</dd>
       </dl>
     </div>
