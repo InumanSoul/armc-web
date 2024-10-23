@@ -1,6 +1,6 @@
 import { BiCartAdd } from 'react-icons/bi';
 import PublicNavigation from '../../components/public/Navigation';
-import SideNav from './components/sidenav';
+import SideNav from './components/SideNav';
 
 export default function Store() {
 	return (

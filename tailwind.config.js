@@ -2,7 +2,11 @@
 export default {
   content: ["index.html", "./src/**/*.{html,js,jsx,tsx,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-home': "url('/motorcycle.jpg')",
+      },
+    },
   },
   plugins: [],
 }

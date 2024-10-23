@@ -8,9 +8,6 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('token');
 
-  console.log('the token exists',token);
-  
-
   return {
     headers: {
       ...headers,

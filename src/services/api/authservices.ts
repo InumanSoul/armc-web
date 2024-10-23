@@ -20,8 +20,6 @@ export const login = async (username: string, password: string) => {
       mutation: LOGIN_MUTATION,
       variables: { username, password },
     });
-
-    console.log('the login occurs', data.login);
     
     return data.login;
   } catch (err) {

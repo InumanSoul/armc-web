@@ -2,16 +2,30 @@ export type User = {
   id: string;
   username: string;
   email: string;
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-    age: number;
-  };
+  personalInfo: PersonalInfo;
   motorcycles: {
-    make: string;
+    model: string;
     model: string;
     year: number;
   }[];
+}
+
+export type PersonalInfo = {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  idNumber: string;
+  emergencyContact: EmergencyContact;
+  address: string;
+  phone: string;
+  joinedDate: string;
+  bio: string;
+}
+
+type EmergencyContact = {
+  name: string;
+  phone: string;
+  relationship: string;
 }
 
 export interface LoginParams {

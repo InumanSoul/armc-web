@@ -22,16 +22,16 @@ export default function Auth() {
 	}, [username, password]);
 
 	return (
-		<section className='w-full h-dvh bg-zinc-900 text-zinc-50 flex flex-col items-center justify-center'>
+		<section className='container h-dvh flex flex-col items-center justify-center'>
 			<Link to={'/'}>
-				<img src='/logo.png' alt='Logo' className='w-28 mb-12' />
+				<img src='/logo.png' alt='Logo' className='w-20 mb-12' />
 			</Link>
-			<form className='space-y-4 border border-zinc-800 bg-zinc-700 p-8 rounded-xl w-full max-w-md' onSubmit={handleSubmit}>
+			<form className='space-y-4 border border-zinc-700 p-8 rounded-xl w-full max-w-md' onSubmit={handleSubmit}>
 				<h1 className='text-3xl font-bold'>Area de miembros</h1>
 					{
 					error ? (
 							<div className='w-full bg-red-500 text-white p-4 mb-4 rounded-xl'>
-								{error.message}
+								{error}
 							</div>
 						) : null
 					}
@@ -65,9 +65,14 @@ export default function Auth() {
 					/>
 				</div>
 				<button type='submit' className='btn btn-primary btn-block' disabled={isValid && !loading}>
-					Login
+					{
+						loading ? 'Cargando...' : 'Ingresar'
+					}
 				</button>
 			</form>
+			<Link to='/register' className='justify-center text-amber-600 inline-flex w-full py-4'>
+				No tengo cuenta
+			</Link>
 		</section>
 	);
 }

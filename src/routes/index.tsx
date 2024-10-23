@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home";
 import Auth from "../pages/Auth";
-import Profile from "../pages/app/Profile";
-import Members from "../pages/app/Members";
+import Events from "../pages/app/events";
+import Profile from "../pages/app/profile";
+import ProfileEdit from "../pages/app/profile/edit";
+import Members from "../pages/app/members";
 import Rules from "../pages/Rules";
 import NotFound from "../pages/NotFound";
 import { Layout } from "../pages/app/Layout";
@@ -11,6 +13,8 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Motorcycles from "../pages/app/Motorcycles";
 import Store from "../pages/store/Store";
+import AuthHome from "../pages/app/home";
+import AuthEventDetail from "../pages/app/events/detail";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +25,36 @@ const router = createBrowserRouter([
   {
     path: "/app",
     element: <Layout />,
-    index: false,
     children: [
       {
+        path: "home",
+        element: <AuthHome />,
+      },
+      {
         path: "profile",
-        element: <Profile />,
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+          {
+            path: "edit",
+            element: <ProfileEdit />,
+          }
+        ]
+      },
+      {
+        path: "events",
+        children: [
+          {
+            index: true,
+            element: <Events />,
+          },
+          {
+            path: ":slug",
+            element: <AuthEventDetail />,
+          }
+        ]
       },
       {
         path: "members",

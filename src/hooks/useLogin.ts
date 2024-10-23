@@ -4,7 +4,7 @@ import { login } from '../services/api/authservices';
 import { useNavigate } from 'react-router-dom';
 
 const useLogin = () => {
-	const [error, setError] = useState<null | unknown>(null);
+	const [error, setError] = useState<null | string>(null);
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
@@ -14,10 +14,14 @@ const useLogin = () => {
 
 		try {
 			await loginUser({ username, password }, { login });
-			console.log('inside useLogin');
 			navigate('/app/profile');
-		} catch (error) {
-			setError(error);
+		} catch (error: unknown) {
+			if(error instanceof Error) {
+				setError(error.message);
+			} else {
+				setError('Error performing login');
+			}
+			throw new Error(`${error instanceof Error ? error.message : error}`);
 		} finally {
 			setLoading(false);
 		}

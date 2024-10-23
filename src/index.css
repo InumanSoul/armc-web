@@ -27,6 +27,14 @@ body {
   @apply border-amber-600 text-amber-500;
 }
 
+.btn-danger {
+  @apply bg-red-600 text-white;
+}
+
+.btn-danger-outline {
+  @apply border-red-600 text-red-500;
+}
+
 .btn-block {
   @apply block w-full;
 }
@@ -37,4 +45,8 @@ body {
 
 .input {
   @apply block w-full px-3 py-2 border rounded-lg bg-zinc-800 border-zinc-600 outline-none focus:border-amber-600;
+}
+
+.container {
+  @apply w-full max-w-3xl mx-auto px-10;
 }
