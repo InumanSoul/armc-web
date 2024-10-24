@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "${VITE_API_PORT}:${VITE_API_PORT}"
+    environment:
+      - VITE_API_URI=${VITE_API_URI}
+    env_file:
+      - .env
+    volumes:
+      - ./:/user/src/app
+    command: npm run preview

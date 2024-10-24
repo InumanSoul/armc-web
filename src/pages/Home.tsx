@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<>
 			<PublicNavigation />
-			<section className='w-full h-[calc(100dvh-90px)] -mt-[90px] bg-zinc-900 text-zinc-50 flex items-center justify-center bg-hero-home bg-cover bg-bottom'>
+			<section className='w-full h-[calc(100dvh-90px)] -mt-[90px] bg-zinc-900 text-zinc-50 flex items-center justify-center bg-hero-home bg-cover bg-center'>
 				<div className='flex flex-col gap-2 text-center'>
 					<h1 className='text-5xl md:text-8xl font-bold'>Angeles Rebeldes MC</h1>
 					<p className='text-2xl'>Hermandad Paraguay, 2009</p>
@@ -13,7 +13,7 @@ export default function Home() {
 						<Link to={'/register'} className='btn btn-primary'>
 							Unite
 						</Link>
-						<Link to={'/contact'} className='btn btn-secondary'>
+						<Link to={'/contact'} className='btn btn-white-outline'>
 							Contacto
 						</Link>
 					</div>
@@ -33,7 +33,7 @@ export default function Home() {
 					</div>
 					<div className='col-span-12 md:col-span-6'>
 						<img
-							src='https://placehold.co/300x200'
+							src='/about-us.jpg'
 							alt='Angeles Rebeldes MC'
 							className='w-full rounded-xl'
 						/>
@@ -47,7 +47,7 @@ export default function Home() {
 						¿Tienes alguna duda o consulta? No dudes en contactarnos a través de
 						nuestro formulario de contacto.
 					</p>
-					<Link to={'/contact'} className='btn btn-secondary mt-5'>
+					<Link to={'/contact'} className='btn btn-white-outline mt-5'>
 						Contacto
 					</Link>
 				</div>

@@ -5,7 +5,7 @@ import useSingleMember from "../../../hooks/useSingleMember";
 import { useEffect } from "react";
 
 const ProfileEdit = () => {
-  const { updateMember, member, getMember } = useSingleMember();
+  const { member, getMember } = useSingleMember();
   const userId = '67112202ed5f426465e9a7c7';
 
   useEffect(() => {

@@ -1,0 +1,58 @@
+export const productsList = [
+  {
+    id: 1,
+    name: 'Remera cuello redondo',
+    description: 'Product 1 description',
+    image: 'https://placehold.co/200x200',
+    price: 100000,
+  },
+  {
+    id: 2,
+    name: 'Remera tipo polo',
+    description: 'Product 2 description',
+    image: 'https://placehold.co/200x200',
+    price: 150000,
+  },
+  {
+    id: 3,
+    name: 'Gorra',
+    description: 'Product 3 description',
+    image: 'https://placehold.co/200x200',
+    price: 50000,
+  },
+  {
+    id: 3,
+    name: 'Remera Aniversario',
+    description: 'Product 3 description',
+    image: 'https://placehold.co/200x200',
+    price: 80000,
+  },
+  {
+    id: 3,
+    name: 'Canguro',
+    description: 'Product 3 description',
+    image: 'https://placehold.co/200x200',
+    price: 180000,
+  },
+  {
+    id: 3,
+    name: 'Llavero',
+    description: 'Product 3 description',
+    image: 'https://placehold.co/200x200',
+    price: 45000,
+  },
+  {
+    id: 4,
+    name: 'Termo 1.5L', 
+    description: 'Product 4 description',
+    image: 'https://placehold.co/200x200',
+    price: 180000,
+  },
+  {
+    id: 5,
+    name: 'Parche 10.000 kms',
+    description: 'Product 5 description',
+    image: 'https://placehold.co/200x200',
+    price: 70000,
+  },
+]

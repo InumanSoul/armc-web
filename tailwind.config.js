@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-home': "url('/motorcycle.png')",
+        'hero-home': "url('/motorcycle.jpg')",
       },
     },
   },

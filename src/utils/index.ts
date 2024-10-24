@@ -12,3 +12,10 @@ export function getYearsOld(date: string): number {
   const now = new Date();
   return now.getFullYear() - d.getFullYear();
 }
+
+export function formatCurrency(value: number): string {
+  return new Intl.NumberFormat('es-PY', {
+    style: 'currency',
+    currency: 'PYG',
+  }).format(value);
+}

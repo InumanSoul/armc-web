@@ -16,6 +16,7 @@ import Store from "../pages/store/Store";
 import AuthHome from "../pages/app/home";
 import AuthEventDetail from "../pages/app/events/detail";
 import AuthMemberDetail from "../pages/app/members/detail";
+import Cart from "../pages/store/Cart";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
         element: <Motorcycles />,
       }
     ]
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+    loader: () => import("../pages/store/Cart")
   },
   {
     path: "/register",
