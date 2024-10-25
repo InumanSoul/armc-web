@@ -2,56 +2,82 @@ import { gql } from '@apollo/client';
 
 export const GET_USERS = gql`
 	query GetUsers {
-		getUsers {
-			id
+		usersPermissionsUsers {
+			documentId
 			username
 			email
+			joinedDate
 			personalInfo {
 				firstName
 				lastName
-				dateOfBirth
 				idNumber
-				emergencyContact {
-					name
-					phone
-					relationship
-				}
-				address
-				phone
-				joinedDate
+				dateOfBirth
 				bio
 			}
-			motorcycles {
-				brand
-				model
-				year
+			emergencyContact {
+				name
+				phone
+				relationship
 			}
 		}
 	}
 `;
 
 export const GET_USER = gql`
-	query GetUser($id: ID!) {
-		getUser(id: $id) {
-			id
+	query GetUser($username: String!) {
+		usersPermissionsUsers(filters:{ username: { eq: $username }}) {
+			documentId
 			username
 			email
+			joinedDate
 			personalInfo {
 				firstName
 				lastName
+				idNumber
 				dateOfBirth
-        idNumber
 				bio
-        emergencyContact {
-          name
-          phone
-          relationship
-        }
 			}
 			motorcycles {
+				documentId
 				brand
 				model
+				color
+				engineCapacity
 				year
+				vin
+			}
+		}
+	}
+`;
+
+export const GET_PRODUCTS = gql`
+	query GetProducts {
+		products {
+			documentId
+			name
+			price
+			slug
+			description
+			photos {
+				previewUrl
+			}
+			categories {
+				name
+			}
+		}
+	}
+`;
+
+export const GET_EVENTS = gql`
+	query GetEvents {
+		events {
+			documentId
+			title
+			description
+			slug
+			date
+			image {
+				previewUrl
 			}
 		}
 	}

@@ -33,6 +33,18 @@ const MemberDetail = () => {
               member?.personalInfo.bio || 'No hay información disponible'
             }
 					</p>
+					<h2 className='text-xl font-bold mt-10'>Motos</h2>
+					{member?.motorcycles && member?.motorcycles.length > 0 ? (
+						<ul>
+							{member?.motorcycles.map((moto) => (
+								<li key={moto.documentId}>
+									{moto.brand} {moto.model} {moto.year}
+								</li>
+							))}
+						</ul>
+					) : (
+						<p>No hay motos registradas...</p>
+					)}
 				</>
 			) : (
 				<p>No se encontro el usuario...</p>

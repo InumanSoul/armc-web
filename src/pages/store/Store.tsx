@@ -1,8 +1,11 @@
 import PublicNavigation from '../../components/public/Navigation';
+import useProducts from '../../hooks/useProducts';
 import SideNav from './components/SideNav';
 import ProductList from './ProductList';
 
 export default function Store() {
+	const { products, loading, error } = useProducts();
+
 	return (
 		<>
 			<PublicNavigation />
@@ -18,7 +21,13 @@ export default function Store() {
 				<main className='grid grid-cols-12 gap-5 w-full'>
 					<SideNav />
 					<div className='col-span-9'>
-						<ProductList />
+						{
+							products.length === 0 && !loading && !error ? (
+								<ProductList products={products} />
+							) : (
+								<p>No hay productos disponibles...</p>
+							)
+						}
 					</div>
 				</main>
 			</section>

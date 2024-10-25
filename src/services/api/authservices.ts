@@ -2,11 +2,10 @@ import { gql } from "@apollo/client";
 import client from "../apolloClient";
 
 const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      token
+  mutation Login($identifier: String!, $password: String!) {
+    login(input: { identifier: $identifier, password: $password }) {
+      jwt
       user {
-        id
         username
         email
       }
@@ -14,11 +13,11 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-export const login = async (username: string, password: string) => {
+export const login = async (identifier: string, password: string) => {
   try {
     const { data } = await client.mutate({
       mutation: LOGIN_MUTATION,
-      variables: { username, password },
+      variables: { identifier, password },
     });
     
     return data.login;

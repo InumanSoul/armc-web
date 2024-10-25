@@ -1,18 +1,12 @@
 import { BiCartAdd } from 'react-icons/bi';
 import { formatCurrency } from '../../../utils';
+import { Product } from '../../../types';
 
-interface ProductProps {
-	image: string;
-	name: string;
-	description: string;
-	price: number;
-}
-
-const ProductListItem = ({ product }: { product: ProductProps }) => {
+const ProductListItem = ({ product }: { product: Product }) => {
 	return (
 		<div className='border border-zinc-600 rounded-xl'>
 			<img
-				src={product.image}
+				src={product.photos?.previewUrl}
 				alt={product.name}
 				className='rounded-t w-full aspect-square'
 			/>

@@ -8,12 +8,12 @@ const useLogin = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
-	const performLogin = async (username: string, password: string) => {
+	const performLogin = async (identifier: string, password: string) => {
 		setLoading(true);
 		setError(null);
 
 		try {
-			await loginUser({ username, password }, { login });
+			await loginUser({ identifier, password }, { login });
 			navigate('/app/profile');
 		} catch (error: unknown) {
 			if(error instanceof Error) {

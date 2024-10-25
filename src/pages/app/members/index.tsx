@@ -41,17 +41,17 @@ const Members = () => {
 						<th className='px-3 py-1 text-left'>Acciones</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody className='w-full'>
 					{!loading && members && members?.length > 0 ? (
 						members?.map((user: User) => (
-							<tr key={user.id} className='hover:bg-zinc-800 duration-200 flex flex-col w-full sm:table-row mb-2 sm:mb-0 border border-zinc-600 p-5 md:p-0 rounded-lg md:border-none'>
+							<tr key={user.documentId} className='hover:bg-zinc-800 duration-200 flex flex-col w-full sm:table-row mb-2 sm:mb-0 border border-zinc-600 p-5 md:p-0 rounded-lg md:border-none'>
 								<td className='md:px-3 md:py-4 font-bold'>
 									{user.personalInfo.firstName} {user.personalInfo.lastName}
 								</td>
 								<td className='md:px-3 md:py-4'>{formatDate(user.personalInfo.dateOfBirth)}</td>
 								<td className='md:px-3 md:py-4'>2020-01-01</td>
 								<td className='md:px-3 md:py-4'>
-									<Link to={`/app/members/${user.id}`} className='btn btn-secondary btn-sm'>Ver perfil</Link>
+									<Link to={`/app/members/${user.username}`} className='btn btn-secondary btn-sm'>Ver perfil</Link>
 								</td>
 							</tr>
 						))

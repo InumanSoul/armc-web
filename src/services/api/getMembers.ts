@@ -8,20 +8,20 @@ export const getUsers = async () => {
       query: queries.GET_USERS,
     });
     
-    return data.getUsers;
+    return data.usersPermissionsUsers;
   } catch (err) {
     throw new Error(`Error: ${err instanceof Error ? err.message : err}`);
   }
 }
 
-export const getUser = async (id: string) => {
+export const getUser = async (username: string) => {
   try {
     const { data } = await client.query({
       query: queries.GET_USER,
-      variables: { id },
+      variables: { username },
     });
 
-    return data.getUser;
+    return data.usersPermissionsUsers[0];
   } catch (err) {
     throw new Error(`Error: ${err instanceof Error ? err.message : err}`);
   }

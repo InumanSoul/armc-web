@@ -1,12 +1,14 @@
-import { productsList } from "./mock/products";
 import ProductListItem from "./components/ProductListItem";
+import { Product } from "../../types";
 
-const ProductList = () => {
+const ProductList = ({
+  products
+}: { products: Product[]}) => {
 	return (
 		<div className='grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5'>
       {
-        productsList.map((product) => (
-          <ProductListItem key={product.id} product={product} />
+        products.map((product) => (
+          <ProductListItem key={product.documentId} product={product} />
         ))
       }
 		</div>

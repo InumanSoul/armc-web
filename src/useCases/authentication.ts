@@ -1,18 +1,18 @@
 import { LoginParams, LoginResponse, LoginService } from '../types';
 
 export const loginUser = async (
-	{ username, password }: LoginParams,
+	{ identifier, password }: LoginParams,
 	loginService: LoginService
 ): Promise<LoginResponse> => {
-	if (!username || !password) {
+	if (!identifier || !password) {
 		throw new Error('username and password are required');
 	}
-
-	const { token, user } = await loginService.login(username, password);
-	localStorage.setItem('token', token);
+	
+	const { jwt, user } = await loginService.login(identifier, password);
+	localStorage.setItem('token', jwt);
 	
 	return {
-		token,
+		jwt,
 		user,
 	};
 };

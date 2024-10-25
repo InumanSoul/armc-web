@@ -7,12 +7,13 @@ const useSingleMember = () => {
   const [loading, setLoading] = useState(false);
   const [member, setMember] = useState<User | null>(null);
 
-  const getMember = useCallback(async (id: string) => {
+  const getMember = useCallback(async (username: string) => {
     setLoading(true);
     setError(null);
 
     try {
-      const data = await getUser(id);
+      const data = await getUser(username);
+      
       setMember(data);
     } catch (error: unknown) {
       if (error instanceof Error) {

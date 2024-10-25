@@ -12,7 +12,7 @@ const Profile = () => {
 	const { getMember, member, loading, error } = useSingleMember();
 
 	useEffect(() => {
-		getMember('67112202ed5f426465e9a7c7');
+		getMember('inumansoul');
 	}, [getMember])
 
 	const userFullName = `${member?.personalInfo.firstName} ${member?.personalInfo.lastName}`;
@@ -38,7 +38,7 @@ const Profile = () => {
 					</div>
 
 					<div className='col-span-12 md:col-span-6'>
-						<MembershipCard name={userFullName} joinDate={member?.personalInfo.joinedDate} />
+						<MembershipCard name={userFullName} joinDate={member?.joinedDate} />
 					</div>
 
 					<div className='col-span-12 md:col-span-6 border border-zinc-600 rounded-xl p-5'>
@@ -48,14 +48,19 @@ const Profile = () => {
             <p>Tipo de sangre: O+</p>
             <p>Fecha de nacimiento: {formatDate(member?.personalInfo.dateOfBirth)}</p>
 						<p>Direccion: Fake street 123</p>
-            <div className='mt-3'>
-						  <p>Contacto de emergencia</p>
-              <div className='py-2 px-3 bg-zinc-700 rounded-lg'>
-                <p className='text-lg font-bold'>{member?.personalInfo?.emergencyContact?.name}</p>
-                <p>Telefono: <span>{member?.personalInfo?.emergencyContact.phone}</span></p>
-                <p>Relación: <span>({member?.personalInfo?.emergencyContact.relationship})</span></p>
-              </div>
-            </div>
+						{
+							member?.emergencyContact && (
+								<div className='mt-3'>
+									<p>Contacto de emergencia</p>
+									<div className='py-2 px-3 bg-zinc-700 rounded-lg'>
+										<p className='text-lg font-bold'>{member?.emergencyContact?.name}</p>
+										<p>Telefono: <span>{member?.emergencyContact.phone}</span></p>
+										<p>Relación: <span>({member?.emergencyContact.relationship})</span></p>
+									</div>
+								</div>
+
+							)
+						}
 					</div>
 					<div className='col-span-12 md:col-span-6 border border-zinc-600 rounded-xl p-5 space-y-3'>
 						<h2 className='text-3xl font-bold'>Motocicleta</h2>
