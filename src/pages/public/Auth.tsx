@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useLogin from '../hooks/useLogin';
+import useLogin from '../../hooks/useLogin';
 
 export default function Auth() {
 	const { performLogin, loading, error } = useLogin();

@@ -1,9 +1,11 @@
 import { BiCart, BiLogIn } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import NavigationItem from './NavigationItem';
+import useShoppingCart from '../../hooks/useShoppingCart';
 
 const PublicNavigation = () => {
 	const token = localStorage.getItem('token');
+	const { totalItems } = useShoppingCart();
 
 	return (
 		<header className='w-full flex justify-between px-10 py-2 items-center sticky top-0 backdrop-blur-md bg-black/70'>
@@ -19,7 +21,8 @@ const PublicNavigation = () => {
 				<img src='/logo.png' alt='Logo' className='w-20' />
 			</Link>
 			<div className='flex gap-2'>
-				<Link to='/cart' className='btn'>
+				<Link to='/cart' className='btn relative'>
+					<span className='bg-red-500 rounded-full absolute top-0 right-0 text-xs size-6 flex items-center justify-center'>{totalItems}</span>
 					<BiCart size={24} />
 				</Link>
 				{token ? (

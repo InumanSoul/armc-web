@@ -59,7 +59,7 @@ export const GET_PRODUCTS = gql`
 			slug
 			description
 			photos {
-				previewUrl
+				url
 			}
 			categories {
 				name

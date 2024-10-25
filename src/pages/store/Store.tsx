@@ -22,7 +22,7 @@ export default function Store() {
 					<SideNav />
 					<div className='col-span-9'>
 						{
-							products.length === 0 && !loading && !error ? (
+							products.length > 0 && !loading && !error ? (
 								<ProductList products={products} />
 							) : (
 								<p>No hay productos disponibles...</p>

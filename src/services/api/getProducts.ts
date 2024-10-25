@@ -2,6 +2,7 @@ import client from "../apolloClient";
 import { queries } from "../querys"
 
 export const getProducts = async () => {
+  
   try {
     const { data } = await client.query({
       query: queries.GET_PRODUCTS,

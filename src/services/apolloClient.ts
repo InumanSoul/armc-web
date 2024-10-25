@@ -1,6 +1,6 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { API_URI } from '../utils/constants';
+import { API_URI, APP_TOKEN } from '../utils/constants';
 
 const httpLink = createHttpLink({
   uri: `${API_URI}/graphql`,
@@ -12,7 +12,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : `Bearer ${APP_TOKEN}`,
     },
   };
 });

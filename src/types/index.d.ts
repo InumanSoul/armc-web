@@ -66,9 +66,9 @@ export type Product = {
   documentId: string;
   name: string;
 	description: string;
-	photos: {
-		previewUrl: string;
-	}
+	photos: [{
+		url: string;
+	}];
   price: number;
   slug: string;
   categories: Categories[];

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PublicNavigation from '../components/public/Navigation';
+import PublicNavigation from '../../components/public/Navigation';
 
 export default function Home() {
 	return (

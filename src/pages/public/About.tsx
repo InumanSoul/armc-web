@@ -1,4 +1,4 @@
-import PublicNavigation from "../components/public/Navigation";
+import PublicNavigation from "../../components/public/Navigation";
 
 export default function About () {
   return (

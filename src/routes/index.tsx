@@ -1,22 +1,23 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../pages/Home";
-import Auth from "../pages/Auth";
+import Home from "../pages/public/Home";
+import Auth from "../pages/public/Auth";
 import Events from "../pages/app/events";
 import Profile from "../pages/app/profile";
 import ProfileEdit from "../pages/app/profile/edit";
 import Members from "../pages/app/members";
-import Rules from "../pages/Rules";
+import Rules from "../pages/public/Rules";
 import NotFound from "../pages/NotFound";
 import { Layout } from "../pages/app/Layout";
-import Register from "../pages/Register";
-import About from "../pages/About";
-import Contact from "../pages/Contact";
+import Register from "../pages/public/Register";
+import About from "../pages/public/About";
+import Contact from "../pages/public/Contact";
 import Motorcycles from "../pages/app/Motorcycles";
 import Store from "../pages/store/Store";
 import AuthHome from "../pages/app/home";
 import AuthEventDetail from "../pages/app/events/detail";
 import AuthMemberDetail from "../pages/app/members/detail";
 import Cart from "../pages/store/Cart";
+import { ProductDetail } from "../pages/store/detail/ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -104,7 +105,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/store",
-    element: <Store />,
+    children: [
+      {
+        index: true,
+        element: <Store />,
+      },
+      {
+        path: ":slug",
+        element: <ProductDetail />,
+      }
+    ]
   },
   {
     path: "*",
