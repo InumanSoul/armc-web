@@ -10,15 +10,20 @@ import { formatDate, getYearsOld } from '../../../utils';
 const Profile = () => {
 	const navigate = useNavigate();
 	const { getMember, member, loading, error } = useSingleMember();
+	const userName = localStorage.getItem('username');
 
 	useEffect(() => {
-		getMember('inumansoul');
-	}, [getMember])
+		getMember(userName as string);
+	}, [getMember, userName]);
+
+	console.log(member);
+	
 
 	const userFullName = `${member?.personalInfo.firstName} ${member?.personalInfo.lastName}`;
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
+		localStorage.removeItem('username');
 		navigate('/');
 	};
 

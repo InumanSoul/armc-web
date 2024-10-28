@@ -10,6 +10,7 @@ export const loginUser = async (
 	
 	const { jwt, user } = await loginService.login(identifier, password);
 	localStorage.setItem('token', jwt);
+	localStorage.setItem('username', user.username);
 	
 	return {
 		jwt,

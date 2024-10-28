@@ -50,6 +50,21 @@ export const GET_USER = gql`
 	}
 `;
 
+export const GET_EVENTS = gql`
+	query GetEvents {
+		events {
+			documentId
+			title
+			description
+			slug
+			date
+			image {
+				previewUrl
+			}
+		}
+	}
+`;
+
 export const GET_PRODUCTS = gql`
 	query GetProducts {
 		products {
@@ -68,16 +83,19 @@ export const GET_PRODUCTS = gql`
 	}
 `;
 
-export const GET_EVENTS = gql`
-	query GetEvents {
-		events {
+export const GET_SINGLE_PRODUCT = gql`
+	query GetSingleProduct($id: ID!) {
+		product(id: $id) {
 			documentId
-			title
-			description
+			name
+			price
 			slug
-			date
-			image {
-				previewUrl
+			description
+			photos {
+				url
+			}
+			categories {
+				name
 			}
 		}
 	}
