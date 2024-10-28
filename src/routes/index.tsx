@@ -81,7 +81,6 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />,
-    loader: () => import("../pages/store/Cart")
   },
   {
     path: "/register",

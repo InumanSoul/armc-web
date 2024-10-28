@@ -2,18 +2,14 @@ import { BiCartAdd } from 'react-icons/bi';
 import { formatCurrency } from '../../../utils';
 import { Product } from '../../../types';
 import { Link } from 'react-router-dom';
-import useShoppingCart from '../../../hooks/useShoppingCart';
+import useCart from '../../../hooks/useCart';
 import { API_URI } from '../../../utils/constants';
 
 const ProductListItem = ({ product }: { product: Product }) => {
-	const { addItem } = useShoppingCart();
+	const { addItem } = useCart();
 
 	const handleClick = () => {
-		addItem({
-			id: product.documentId,
-			name: product.name,
-			price: product.price,
-		});
+		addItem(product);
 	};
 
 	return (

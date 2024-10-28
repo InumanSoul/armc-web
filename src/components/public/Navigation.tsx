@@ -1,11 +1,11 @@
 import { BiCart, BiLogIn } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import NavigationItem from './NavigationItem';
-import useShoppingCart from '../../hooks/useShoppingCart';
+import useCart from '../../hooks/useCart';
 
 const PublicNavigation = () => {
 	const token = localStorage.getItem('token');
-	const { totalItems } = useShoppingCart();
+	const { totalItems } = useCart();
 
 	return (
 		<header className='w-full flex justify-between px-10 py-2 items-center sticky top-0 backdrop-blur-md bg-black/70'>

@@ -1,12 +1,14 @@
 import { BiTrash } from "react-icons/bi";
 import PublicNavigation from "../../components/public/Navigation";
-import useShoppingCart, { Item } from "../../hooks/useShoppingCart";
+import useCart from "../../hooks/useCart";
 import { formatCurrency } from "../../utils";
+import { Product } from "../../types";
 
 const Cart = () => {
-	const { shoppingCart, totalAmmount, removeItem } = useShoppingCart();
+	const { totalAmount, removeItem, cart } = useCart();
 
-	const handleRemove = (item: Item) => {
+	const handleRemove = (item: Product) => {
+		if (!item) return;
 		removeItem(item);
 	}
 
@@ -17,11 +19,11 @@ const Cart = () => {
 			<h1 className="text-2xl font-bold">Carrito de compras</h1>
 			<ul className="space-y-4 py-3">
 				{
-					shoppingCart.length === 0 ? (
+					cart?.length === 0 ? (
 						<p>No hay productos en el carrito...</p>
 					) :
-					shoppingCart.map((item: Item) => (
-						<li key={item.id} className="flex justify-between">
+					cart?.map((item: Product) => (
+						<li key={item.documentId} className="flex justify-between">
 							<h3>{item.name}</h3>
 							<div className="flex items-center gap-3">
 							<p>
@@ -38,7 +40,7 @@ const Cart = () => {
 			<div className="border-t border-zinc-600 py-3 flex justify-between">
 				<h3>Total</h3>
 				<p className="font-bold text-lg">
-					{formatCurrency(totalAmmount)}
+					{formatCurrency(totalAmount ?? 0)}
 				</p>
 			</div>
 			<button className="btn btn-primary">Realizar pedido</button>
