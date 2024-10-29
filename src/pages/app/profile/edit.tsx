@@ -6,11 +6,11 @@ import { useEffect } from "react";
 
 const ProfileEdit = () => {
   const { member, getMember } = useSingleMember();
-  const userId = '67112202ed5f426465e9a7c7';
+  const userName = localStorage.getItem('username');
 
   useEffect(() => {
-    getMember(userId);
-  }, [getMember, userId]);
+    getMember(userName as string);
+  }, [getMember, userName]);
 
   const handleUpdate = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

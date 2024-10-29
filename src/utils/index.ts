@@ -7,6 +7,11 @@ export function formatDate(date: string): string {
   });
 }
 
+export function getYearOnly(date: string): string {
+  const d = new Date(date);
+  return d.getFullYear().toString();
+}
+
 export function getYearsOld(date: string): number {
   const d = new Date(date);
   const now = new Date();

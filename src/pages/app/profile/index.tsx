@@ -16,9 +16,6 @@ const Profile = () => {
 		getMember(userName as string);
 	}, [getMember, userName]);
 
-	console.log(member);
-	
-
 	const userFullName = `${member?.personalInfo.firstName} ${member?.personalInfo.lastName}`;
 
 	const handleLogout = () => {
@@ -34,12 +31,12 @@ const Profile = () => {
 			{member && (
 				<div className='grid grid-cols-12 gap-5 w-full mt-16'>
           <div className='col-span-12 md:col-span-6 border border-zinc-600 rounded-xl p-5'>
-					  <div className='size-28 bg-zinc-500 rounded-full flex items-center justify-center'></div>
+					  <div className='size-28 bg-zinc-500 rounded-full flex items-center justify-center mb-5'></div>
 
 						<h1 className='font-bold text-3xl'>{userFullName}</h1>
 						<p className='bg-amber-800 text-amber-300 rounded p-1 inline-flex'>@{member?.username}</p>
 						<p>Email: {member?.email}</p>
-						<p>Edad: {getYearsOld(member?.personalInfo.dateOfBirth)}</p>
+						<p>Edad: {getYearsOld(member?.personalInfo.dateOfBirth)} años</p>
 					</div>
 
 					<div className='col-span-12 md:col-span-6'>
@@ -50,9 +47,9 @@ const Profile = () => {
 						<h2 className='font-bold text-3xl'>Información</h2>
             <p>Nombre: {member?.personalInfo.firstName}</p>
 						<p>Apellido: {member?.personalInfo.lastName}</p>
-            <p>Tipo de sangre: O+</p>
+            <p>Tipo de sangre: {member?.personalInfo?.bloodType}</p>
             <p>Fecha de nacimiento: {formatDate(member?.personalInfo.dateOfBirth)}</p>
-						<p>Direccion: Fake street 123</p>
+						<p>Dirección: {member?.personalInfo?.address}</p>
 						{
 							member?.emergencyContact && (
 								<div className='mt-3'>
@@ -72,13 +69,21 @@ const Profile = () => {
             <div className='w-full h-28 bg-zinc-500 rounded-lg flex items-center justify-center'>
              <IoImage size={32} className='m-auto text-zinc-300' />
             </div>
-            <div>
-              <h4 className='font-bold text-xl'>Detalles</h4>
-              <p>Marca: BMW</p>
-              <p>Modelo: K 1600 GTL</p>
-              <p>Año: 2012</p>
-              <p>Chapa: BQW 123</p>
-            </div>
+            {
+							member?.motorcycles ? (
+								<div>
+									<h4 className='font-bold text-xl'>Detalles</h4>
+									<p>Marca: {member?.motorcycles[0].brand}</p>
+									<p>Modelo: {member?.motorcycles[0].model}</p>
+									<p>Año: {member?.motorcycles[0].year}</p>
+									<p>Chapa: {member?.motorcycles[0].vin}</p>
+								</div>
+							) : (
+								<div>
+									<p className='text-zinc-400'>No hay motocicletas registradas</p>
+								</div>
+							)
+						}
 					</div>
 				</div>
 			)}

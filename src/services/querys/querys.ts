@@ -12,6 +12,9 @@ export const GET_USERS = gql`
 				lastName
 				idNumber
 				dateOfBirth
+				bloodType
+				address
+				phone
 				bio
 			}
 			emergencyContact {
@@ -35,6 +38,9 @@ export const GET_USER = gql`
 				lastName
 				idNumber
 				dateOfBirth
+				bloodType
+				address
+				phone
 				bio
 			}
 			motorcycles {
@@ -96,6 +102,46 @@ export const GET_SINGLE_PRODUCT = gql`
 			}
 			categories {
 				name
+			}
+		}
+	}
+`;
+
+export const GET_MOTORCYCLES = gql`
+	query GetMotorcycles {
+		motorcycles {
+			documentId
+			brand
+			model
+			color
+			engineCapacity
+			year
+			vin
+			users_permissions_user {
+				documentId
+				personalInfo {
+					firstName
+				}
+			}
+		}
+	}
+`;
+
+export const GET_SINGLE_MOTORCYCLE = gql`
+	query GetMotorcycles($username: ID!) {
+		motorcycles(filters: { users_permissions_user: { username: { eq: $username } } }) {
+			documentId
+			brand
+			model
+			color
+			engineCapacity
+			year
+			vin
+			users_permissions_user {
+				documentId
+				personalInfo {
+					firstName
+				}
 			}
 		}
 	}

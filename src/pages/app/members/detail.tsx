@@ -3,7 +3,7 @@ import Authenticated from '../../../components/Authenticated';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import useSingleMember from '../../../hooks/useSingleMember';
-import { formatDate } from '../../../utils';
+import { formatDate, getYearOnly } from '../../../utils';
 
 const MemberDetail = () => {
 	const { getMember, member, loading, error } = useSingleMember();
@@ -22,23 +22,36 @@ const MemberDetail = () => {
 			</Link>
 			{member && !loading && !error ? (
 				<>
+					<div className='size-28 bg-zinc-600 rounded-full mb-5'></div>
 					<h1 className='text-3xl font-bold'>
 						{member?.personalInfo.firstName} {member?.personalInfo.lastName}
 					</h1>
-					<p className='text-lg text-zinc-500'>
-						{formatDate(member?.personalInfo.dateOfBirth)}
-					</p>
-					<p>
+					<p className='my-2'>
 						{
               member?.personalInfo.bio || 'No hay información disponible'
             }
 					</p>
+					<div className='border border-zinc-600 rounded-xl p-5'>
+						<p>
+							Fecha de nacimiento: {formatDate(member?.personalInfo.dateOfBirth)}
+						</p>
+						<p>
+							Email: {member?.email || 'No hay información disponible'}
+						</p>
+						<p>
+							Teléfono: {member?.personalInfo.phone || 'No hay información disponible'}
+						</p>
+						<p>
+							Dirección: {member?.personalInfo.address || 'No hay información disponible'}
+						</p>
+					</div>
+					
 					<h2 className='text-xl font-bold mt-10'>Motos</h2>
 					{member?.motorcycles && member?.motorcycles.length > 0 ? (
 						<ul>
 							{member?.motorcycles.map((moto) => (
 								<li key={moto.documentId}>
-									{moto.brand} {moto.model} {moto.year}
+									{moto.brand} {moto.model} {getYearOnly(moto.year)}
 								</li>
 							))}
 						</ul>

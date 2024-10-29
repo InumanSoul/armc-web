@@ -11,7 +11,8 @@ import { Layout } from "../pages/app/Layout";
 import Register from "../pages/public/Register";
 import About from "../pages/public/About";
 import Contact from "../pages/public/Contact";
-import Motorcycles from "../pages/app/Motorcycles";
+import Motorcycles from "../pages/app/motorcycles";
+import MotorcycleDetail from "../pages/app/motorcycles/detail";
 import Store from "../pages/store/Store";
 import AuthHome from "../pages/app/home";
 import AuthEventDetail from "../pages/app/events/detail";
@@ -74,7 +75,16 @@ const router = createBrowserRouter([
       },
       {
         path: "motorcycles",
-        element: <Motorcycles />,
+        children: [
+          {
+            index: true,
+            element: <Motorcycles />,
+          },
+          {
+            path: ":id",
+            element: <MotorcycleDetail />,
+          }
+        ]
       }
     ]
   },

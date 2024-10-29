@@ -12,7 +12,7 @@ const EventDetail = () => {
       <div className="bg-zinc-600 rounded-xl overflow-hidden">
         <img src="https://placehold.co/512x320" alt="Evento ejemplo" className="w-full object-contain" />
       </div>
-      <h1 className="text-3xl font-bold">Evento #123456</h1>
+      <h1 className="text-3xl font-bold my-3">Evento #123456</h1>
       <p className="text-lg text-zinc-500">
         12/12/2024 - 12:00 PM
       </p>

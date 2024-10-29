@@ -3,13 +3,7 @@ export type User = {
 	username: string;
 	email: string;
 	joinedDate: string;
-	personalInfo: {
-		firstName: string;
-		lastName: string;
-		idNumber: string;
-		dateOfBirth: string;
-		bio: string;
-	};
+	personalInfo: Record<PersonalInfo>;
 	emergencyContact:{
 		name: string;
 		phone: string;
@@ -29,13 +23,13 @@ export type User = {
 export type PersonalInfo = {
 	firstName: string;
 	lastName: string;
-	dateOfBirth: string;
 	idNumber: string;
+	dateOfBirth: string;
+	bio: string;
 	emergencyContact: EmergencyContact;
 	address: string;
 	phone: string;
 	joinedDate: string;
-	bio: string;
 };
 
 type EmergencyContact = {
@@ -83,7 +77,38 @@ export type EventProp = {
 	image: {
 		previewUrl: string;
 	}
+}
 
+export type MotorcycleResponse = {
+	documentId: string;
+	brand: string;
+	model: string;
+	color: string;
+	engineCapacity: number;
+	year: string;
+	vin: string;
+	users_permissions_user: {
+		documentId: string;
+		username: string;
+		personalInfo: {
+			firstName: string;
+			lastName: string;
+		}
+	}
+}
+
+export type Motorcycle = {
+	documentId: string;
+	brand: string;
+	model: string;
+	color: string;
+	engineCapacity: number;
+	year: string;
+	vin: string;
+	owner: {
+		name: string;
+		documentId: string;
+	}
 }
 
 export interface LoginService {

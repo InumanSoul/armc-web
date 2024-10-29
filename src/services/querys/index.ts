@@ -1,4 +1,4 @@
-import { GET_EVENTS, GET_PRODUCTS, GET_SINGLE_PRODUCT, GET_USER, GET_USERS } from "./querys"
+import { GET_EVENTS, GET_MOTORCYCLES, GET_PRODUCTS, GET_SINGLE_MOTORCYCLE, GET_SINGLE_PRODUCT, GET_USER, GET_USERS } from "./querys"
 import { UPDATE_USER } from "./updates"
 
 export const queries = {
@@ -7,5 +7,7 @@ export const queries = {
 	GET_PRODUCTS,
 	GET_SINGLE_PRODUCT,
 	GET_EVENTS,
+	GET_MOTORCYCLES,
+	GET_SINGLE_MOTORCYCLE,
 	UPDATE_USER
 }
