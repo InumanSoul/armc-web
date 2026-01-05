@@ -7,6 +7,9 @@ import useMembers from '../../../hooks/useMembers';
 const Members = () => {
 	const { loading, members, error } = useMembers();
 
+	console.log(members);
+	
+
 	return (
 		<section className='container mt-20'>
 			{error ? (

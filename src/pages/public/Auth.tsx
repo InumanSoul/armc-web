@@ -52,7 +52,7 @@ export default function Auth() {
 				</div>
 				<div className='flex flex-col'>
 					<label className='text-sm font-semibold' htmlFor='password'>
-						Password
+						Contraseña
 					</label>
 					<input
 						type='password'

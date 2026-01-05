@@ -16,11 +16,11 @@ body {
 }
 
 .btn-secondary {
-  @apply bg-zinc-700 text-white;
+  @apply bg-gradient-to-b from-zinc-600 hover:bg-gradient-to-t to-zinc-700 text-white border border-zinc-800 ring-1 ring-zinc-600 ring-inset;
 }
 
 .btn-primary {
-  @apply bg-amber-600 text-white;
+  @apply bg-gradient-to-b from-amber-600 hover:bg-gradient-to-t to-amber-700 text-white border border-amber-800 ring-1 ring-amber-600 ring-inset;
 }
 
 .btn-primary-outline {
@@ -48,7 +48,7 @@ body {
 }
 
 .input {
-  @apply block w-full px-3 py-2 border rounded-lg bg-zinc-800 border-zinc-600 outline-none focus:border-amber-600;
+  @apply block w-full px-3 py-2 border rounded-lg bg-zinc-800 border-zinc-600 outline-none focus:border-amber-600 disabled:cursor-not-allowed disabled:opacity-50 read-only:cursor-not-allowed;
 }
 
 .label {
