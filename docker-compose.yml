@@ -3,7 +3,7 @@ services:
   web:
     build: .
     ports:
-      - "${VITE_API_PORT}:${VITE_API_PORT}"
+      - "${VITE_API_PORT}:3000"
     environment:
       - VITE_API_URI=${VITE_API_URI}
     env_file:
@@ -11,3 +11,7 @@ services:
     volumes:
       - ./:/user/src/app
     command: npm run preview
+  
+networks:
+  armc-web-network:
+    driver: bridge
